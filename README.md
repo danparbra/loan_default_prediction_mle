@@ -1,1 +1,1 @@
-# Qubika Machine Learning Engineer Solution
+# Qubika Machine Learning Engineer Challenge Solution
