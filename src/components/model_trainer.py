@@ -34,16 +34,16 @@ class ModelTrainer:
             )
             models = {
                 "Logistic Regression": LogisticRegression(penalty="l2"),
-                # "Random Forest": RandomForestClassifier(),
+                "Random Forest": RandomForestClassifier(),
             }
             params = {
                 "Logistic Regression": {
                     "C": [0.001, 0.01, 0.1, 1, 10, 100, 1000],
                 },
-                # "Random Forest": {
-                #    "n_estimators": [50, 100, 200, 300, 400, 500],
-                #    "max_depth": [5, 10, 20, 30, 40, 50, None],
-                # },
+                "Random Forest": {
+                    "n_estimators": [50, 100, 200, 300, 400, 500],
+                    "max_depth": [5, 10, 20, 30, 40, 50, None],
+                },
             }
 
             model_report: dict = evaluate_models(
