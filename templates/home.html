@@ -1,0 +1,54 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Qubika Machine Learning Engineer Challenge</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Loan Approval Prediction</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">Age</label>
+            <input class="form-control" type="number" name="Age" placeholder="Enter your Age" min='0' step='1' required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Annual Income</label>
+            <input class="form-control" type="number" name="Annual_Income" placeholder="Enter your Annual Income" min='0' step='1' required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Credit Score</label>
+            <input class="form-control" type="number" name="Credit_Score" placeholder="Enter your Credit Score" min='0' step='1' required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Loan Amount</label>
+            <input class="form-control" type="number" name="Loan_Amount" placeholder="Enter your Loan Amount" min='0' step='1' required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Loan Duration (Years)</label>
+            <input class="form-control" type="number" name="Loan_Duration_Years" placeholder="Enter your Loan Duration in Years" min='0' step='1' required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Number of Open Accounts</label>
+            <input class="form-control" type="number" name="Number_of_Open_Accounts" placeholder="Enter your Number of Open Accounts" min='0' required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Had Past Default</label>
+            <select class="form-control" name="Had_Past_Default" required>
+                <option class="placeholder" selected disabled value="">Had Past Default</option>
+                <option value="0">
+                    No
+                </option>
+                <option value="1">
+                    Yes
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict your Loan Approval" required />
+        </div>
+    </form>
+    <h2>
+       The prediction is {{results}}
+    </h2>
+   <body>
+</html>

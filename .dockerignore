@@ -1,0 +1,9 @@
+venv
+.dvc
+logs
+infrastructure
+docs
+qubikamlechallenge.egg-info
+LICENSE
+README.md
+research

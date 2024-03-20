@@ -46,7 +46,7 @@ class DataTransformation:
 
             cat_pipeline = Pipeline(
                 steps=[
-                    ("scaler", StandardScaler(with_mean=False)),
+                    ("imputer", SimpleImputer(strategy="most_frequent")),
                 ]
             )
 
