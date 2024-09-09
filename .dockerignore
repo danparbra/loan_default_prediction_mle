@@ -3,7 +3,7 @@ venv
 logs
 infrastructure
 docs
-qubikamlechallenge.egg-info
+*.egg-info
 LICENSE
 README.md
 research

@@ -1,4 +1,4 @@
-# Qubika Machine Learning Engineer Challenge Solution
+# Loan Approval Prediction Machine Learning Engineer Project
 This repository hosts a solution for a machine learning prediction problem. It implements a classification task in order to predict if a loan is approved or not based on each client's financial characteristics. Predictions can be requested online via a web app built using Flask and containerized using Docker, ready to be deployed into a production environment. As a demo, a deployment was made using AWS ECR and EC2 instances.
 
 ## Tools used
@@ -12,7 +12,9 @@ Other tools considered but not implemented:
 * **Evidently**: Open source tool to monitor model in production to detect model drifts, data drifts, etc.
 
 ## Description
-To productionize this model, it was necessary to consider the steps outlined in the *model.py* file delivered by Mike. This file clearly showed three different stages: data loading, data processing and transformation, model training and predictions.
+![Architecture Diagram](./src/arch.PNG)
+
+To productionize this model, it was necessary to consider the steps outlined in the *model.py* file. This file clearly showed three different stages: data loading, data processing and transformation, model training and predictions.
 
 Taking this into account, the following code refactorings and additions were implemented over this *model.py* file. The results of this refactoring can be seen in the *src/components* folder:
 1. Data Ingestion: The *src/components/data_ingestion.py* file loads the raw dataset and splits it into train and test sets.
@@ -26,9 +28,9 @@ Other auxiliary scripts are implemented in this *src* folder such as:
 
 It is required from the problem statement that this is meant to be an initial model in a series of future deployments. For this reason, to track the specific versions of the models and the data that was used to train them, I used the DVC (Data Version Control) tool. In this case, the raw dataset *dataset.csv* is tracked using DVC with its respective metadata available in the *artifacts/data* folder. The models' pickle file versions are also tracked with DVC in the *artifacts/models* folder.
 
-Also, to enrich the modeling stage, a Random Forest Classifier model was also trained apart from Mike's Logistic Regression model. Hyperparameter tuning is implemented on each model to further enhance their predictions quality.
+Also, to enrich the modeling stage, a Random Forest Classifier model was also trained apart from a Logistic Regression model. Hyperparameter tuning is implemented on each model to further enhance their predictions quality.
 
-Once Mike's script is refactored, the construction of the web app begins. To do this, the *app.py* script uses the html forms available in the *templates* folder to get the user inputs. To process this inputs and make the predictions, the *src/pipelines/prediction_pipeline.py* defines the steps in which the prediction request should be handled.
+Once the *model.py* script is refactored, the construction of the web app begins. To do this, the *app.py* script uses the html forms available in the *templates* folder to get the user inputs. To process this inputs and make the predictions, the *src/pipelines/prediction_pipeline.py* defines the steps in which the prediction request should be handled.
 
 ## Considerations
 * Online prediction with batch features: For simplicity I assumed that prediction are real-time, but the features are computed in batch (offline). Model training is also a batch process.
@@ -49,4 +51,4 @@ These are some additional topics and tasks to enrich the solution:
 * Implement retrainining tasks in the *pipelines/training_pipeline.py* file to adapt the model to learn patterns from new data. This pipeline can be triggered based on different criteria such as every certain amount of time or whenever there is a reasonable amount of new observations to be passed to the model (e.g. 100 new rows, 500 new rows, 1000 new rows).
 
 ## Demo in AWS
-To show how the actual web app would look like, a URL was made available. For security reasons, this URL is meant to be accessed only by my specific IP address.
+To show how the actual web app would look like, a URL was made available.

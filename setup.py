@@ -22,10 +22,10 @@ def get_requirements(file_path: str) -> List[str]:
 
 
 setup(
-    name="qubikamlechallenge",
+    name="loanapprovalprediction",
     version="0.0.1",
     author="David P. Bravo",
-    author_email="danparbra@gmail.com",
+    author_email="XXXXXXXX@XXXX.com",
     packages=find_packages(),
     install_requires=get_requirements("requirements.txt"),
 )
